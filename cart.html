@@ -160,7 +160,7 @@
 
 <div class="totals">
   <p id="subTotal">Subtotal: Rs. 0</p>
-  <p id="taxAmount">Taxes (18%): Rs. 0</p>
+  <p id="taxAmount">Taxes (5%): Rs. 0</p>
   <p id="grandTotal">Grand Total: Rs. 0</p>
 </div>
 
@@ -170,7 +170,7 @@
 </div>
 
 <script>
-  const TAX_RATE = 0.5; // 18% tax
+  const TAX_RATE = 0.05; // 5% tax
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
   const table = document.getElementById("cartTable");
 
@@ -204,7 +204,7 @@
     const grandTotal = (subTotal + parseFloat(taxAmount)).toFixed(2);
 
     document.getElementById("subTotal").textContent = "Subtotal: Rs. " + subTotal;
-    document.getElementById("taxAmount").textContent = "Taxes (18%): Rs. " + taxAmount;
+    document.getElementById("taxAmount").textContent = "Taxes (5%): Rs. " + taxAmount;
     document.getElementById("grandTotal").textContent = "Grand Total: Rs. " + grandTotal;
   }
 
