@@ -1,447 +1,321 @@
-       <!--========== SERVICES ==========-->
-            <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Homesure | Services</title>
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="New logo.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="New logo.png">
+  <title>Homesure Sofa Cleaning Services</title>
   <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:Arial, sans-serif;background:#f9f9f9;color:#333}
-    header{background:#fff;padding:15px 5%;display:flex;justify-content:space-between;align-items:center;
-      box-shadow:0 2px 6px rgba(0,0,0,0.1);position:sticky;top:0;z-index:100}
-    header h1{color:#2d6a4f;font-size:22px}
-    nav a{margin-left:20px;text-decoration:none;color:#333;font-weight:500}
-    nav a:hover{color:#2d6a4f}
-    .filters{padding:20px 5%;display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
-    .filters select{padding:10px;border-radius:6px;border:1px solid #ccc}
-    .services{padding:40px 5%}
-    .services h2{margin-bottom:20px;font-size:26px;color:#2d6a4f;text-align:center}
-    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px}
-    .card{background:#fff;border-radius:12px;overflow:hidden;
-      box-shadow:0 4px 10px rgba(0,0,0,0.1);transition:0.3s;display:flex;flex-direction:column}
-    .card:hover{transform:translateY(-5px)}
-    .card img{width:100%;height:180px;object-fit:cover}
-    .card-body{padding:15px;flex:1;display:flex;flex-direction:column}
-    .card-body h3{font-size:18px;margin-bottom:5px}
-    .card-body p{font-size:14px;color:#555;margin-bottom:5px}
-    .price{font-weight:bold;color:#2d6a4f}
-    .note{font-size:12px;color:#777;margin-top:auto}
-    .book-btn{margin-top:10px;padding:10px;background:#2d6a4f;color:#fff;border:none;border-radius:6px;
-      cursor:pointer;font-size:14px}
-    .book-btn:hover{background:#1b4332}
-    footer{background:#111;color:#fff;text-align:center;padding:20px;margin-top:40px}
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f6f9;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    p {
+      margin-top: 8px;
+      font-size: 1.1rem;
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      padding: 30px 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 25px;
+    }
+    .service-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+    .service-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .content {
+      padding: 20px;
+    }
+    .content h2 {
+      margin: 0;
+      color: #0077b6;
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+    }
+    .content p {
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+    .selector {
+      margin-bottom: 12px;
+    }
+    select {
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      width: 100%;
+      font-size: 1rem;
+    }
+    .price {
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: #ff6f61;
+      margin-bottom: 10px;
+    }
+    .book-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #0077b6, #0096c7);
+      color: white;
+      padding: 10px 18px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: 0.3s;
+    }
+    .book-btn:hover {
+      background: linear-gradient(135deg, #023e8a, #0077b6);
+    }
   </style>
 </head>
-  <!-- Filters -->
-  <div class="filters">
-    <select id="categoryFilter">
-      <option value="all">All Categories</option> 
-      <option value="cleaning">Cleaning</option>
-      <option value="salon">Salon</option>
-      <option value="appliance">Appliance</option>
-      <option value="repair">Repairs</option>
-    </select>
-    <select id="priceFilter">
-      <option value="default">Sort by</option>
-      <option value="lowHigh">Price: Low to High</option>
-      <option value="highLow">Price: High to Low</option>
-    </select>
+<body>
+
+<header>
+  <h1>Homesure Sofa Cleaning Services</h1>
+  <p>Deep & Professional Sofa Cleaning at Your Doorstep</p>
+</header>
+
+<div class="container">
+
+  <!-- Fabric Sofa -->
+  <div class="service-card">
+    <img src="Sofa.png" alt="Fabric Sofa Cleaning">
+    <div class="content">
+      <h2>Fabric Sofa Cleaning</h2>
+      <p>Remove dirt, stains, and allergens with eco-friendly shampoo wash.</p>
+      <div class="selector">
+        <select onchange="updatePrice(this, { '2 Seater':499, '3 Seater':699, '5 Seater':999 })">
+          <option value="">Select Sofa Size</option>
+          <option value="2 Seater">2 Seater</option>
+          <option value="3 Seater">3 Seater</option>
+          <option value="5 Seater">5 Seater</option>
+        </select>
+      </div>
+      <div class="price">Rs. 0</div>
+      <a href="cart.html" class="book-btn" onclick="addToCart('Fabric Sofa Cleaning', this)">Book Now</a>
+    </div>
   </div>
 
-  <!-- Services -->
-  <section class="services" id="services">
-    <h2>Our Services</h2>
-    <div class="grid" id="serviceGrid">
-
-      <!-- Bathroom Cleaning -->
-      <div class="card" data-category="cleaning" data-price="449">
-        <img src="assets/img/Bath1.png" alt="Bathroom Cleaning 1">
-        <div class="card-body">
-          <h3>Bathroom Cleaning - 1 Bathroom</h3>
-          <p class="price">₹449 – ₹499</p>
-          <p class="note">Final cost may vary after inspection</p>
-           <a href="cart.html" class="btn-book" onclick="addToCart('Kitchen Deep Cleaning', 1200)">Book Now</a>
-
-        </div>
+  <!-- Leather Sofa -->
+  <div class="service-card">
+    <img src="sofa 2.png" alt="Leather Sofa Cleaning">
+    <div class="content">
+      <h2>Leather Sofa Cleaning</h2>
+      <p>Premium leather-safe products for shine, stain removal & conditioning.</p>
+      <div class="selector">
+        <select onchange="updatePrice(this, { '2 Seater':699, '3 Seater':899, '5 Seater':1299 })">
+          <option value="">Select Sofa Size</option>
+          <option value="2 Seater">2 Seater</option>
+          <option value="3 Seater">3 Seater</option>
+          <option value="5 Seater">5 Seater</option>
+        </select>
       </div>
-      <div class="card" data-category="cleaning" data-price="849">
-        <img src="assets/img/bath3.png" alt="Bathroom Cleaning 2">
-        <div class="card-body">
-          <h3>Bathroom Cleaning - 2 Bathrooms</h3>
-          <p class="price">₹849 – ₹949</p>
-          <p class="note">Final cost may vary after inspection</p>
-          <button class="book-btn">Book Now</button>
-        </div>
-      </div>
-      <div class="card" data-category="cleaning" data-price="849">
-        <img src="assets/img/bath4.png" alt="Bathroom Cleaning 2">
-        <div class="card-body">
-          <h3>Bathroom Cleaning - 2 Bathrooms</h3>
-          <p class="price">₹849 – ₹949</p>
-          <p class="note">Final cost may vary after inspection</p>
-          <button class="book-btn">Book Now</button>
-        </div>
-      </div>
-      <div class="card" data-category="cleaning" data-price="849">
-        <img src="assets/img/bath5.png" alt="Bathroom Cleaning 2">
-        <div class="card-body">
-          <h3>Bathroom Cleaning - 2 Bathrooms</h3>
-          <p class="price">₹849 – ₹949</p>
-          <p class="note">Final cost may vary after inspection</p>
-          <button class="book-btn">Book Now</button>
-        </div>
-      </div>
-      <div class="card" data-category="cleaning" data-price="849">
-        <img src="assets/img/bath6.png" alt="Bathroom Cleaning 2">
-        <div class="card-body">
-          <h3>Bathroom Cleaning - 2 Bathrooms</h3>
-          <p class="price">₹849 – ₹949</p>
-          <p class="note">Final cost may vary after inspection</p>
-          <button class="book-btn">Book Now</button>
-        </div>
-      </div>
-      <div class="card" data-category="cleaning" data-price="849">
-        <img src="assets/img/bath7.png" alt="Bathroom Cleaning 2">
-        <div class="card-body">
-          <h3>Bathroom Cleaning - 2 Bathrooms</h3>
-          <p class="price">₹849 – ₹949</p>
-          <p class="note">Final cost may vary after inspection</p>
-          <button class="book-btn">Book Now</button>
-        </div>
-      </div>
-               <!-- Apartment Deep Cleaning Basic -->
-      <div class="card" data-category="cleaning" data-price="2699">
-        <img src="assets/img/ap1.png" alt="1BHK Cleaning">
-        <div class="card-body">
-          <h3>Apartment Cleaning - 1BHK Unfurnished</h3>
-          <p class="price">₹2699</p>
-          <p class="note">Estimate after inspection</p>
-          <button class="book-btn">Book Now</button>
-        </div>
-      </div>
-      <div class="card" data-category="cleaning" data-price="3099">
-        <img src="assets/img/ap2.png" alt="2BHK Cleaning">
-        <div class="card-body">
-          <h3>Apartment Cleaning - 2BHK Unfurnished</h3>
-          <p class="price">₹3099</p>
-          <p class="note">Estimate after inspection</p>
-          <button class="book-btn">Book Now</button>
-        </div>
-      </div>
-      <div class="card" data-category="cleaning" data-price="5399">
-        <img src="assets/img/ap3.png" alt="3BHK Cleaning">
-        <div class="card-body">
-          <h3>Apartment Cleaning - 3BHK Furnished</h3>
-          <p class="price">₹5399</p>
-          <p class="note">Estimate after inspection</p>
-          <button class="book-btn">Book Now</button>
-        </div>
-      </div>
-      <div class="card" data-category="cleaning" data-price="5399">
-        <img src="assets/img/ap4.png" alt="3BHK Cleaning">
-        <div class="card-body">
-          <h3>Apartment Cleaning - 3BHK Furnished</h3>
-          <p class="price">₹5399</p>
-          <p class="note">Estimate after inspection</p>
-          <button class="book-btn">Book Now</button>
-        </div>
-      </div>
-      <div class="card" data-category="cleaning" data-price="5399">
-        <img src="assets/img/ap5.png" alt="3BHK Cleaning">
-        <div class="card-body">
-          <h3>Apartment Cleaning - 3BHK Furnished</h3>
-          <p class="price">₹5399</p>
-          <p class="note">Estimate after inspection</p>
-          <button class="book-btn">Book Now</button>
-        </div>
-      </div>
-      <div class="card" data-category="cleaning" data-price="5399">
-        <img src="assets/img/ap6.png" alt="3BHK Cleaning">
-        <div class="card-body">
-          <h3>Apartment Cleaning - 3BHK Furnished</h3>
-          <p class="price">₹5399</p>
-          <p class="note">Estimate after inspection</p>
-          <button class="book-btn">Book Now</button>
-        </div>
-      </div>
-      <div class="card" data-category="cleaning" data-price="5399">
-        <img src="assets/img/ap7.png" alt="3BHK Cleaning">
-        <div class="card-body">
-          <h3>Apartment Cleaning - 3BHK Furnished</h3>
-          <p class="price">₹5399</p>
-          <p class="note">Estimate after inspection</p>
-          <button class="book-btn">Book Now</button>
-        </div>
-      </div>
-      <div class="card" data-category="cleaning" data-price="5399">
-        <img src="assets/img/ap8.png" alt="3BHK Cleaning">
-        <div class="card-body">
-          <h3>Apartment Cleaning - 3BHK Furnished</h3>
-          <p class="price">₹5399</p>
-          <p class="note">Estimate after inspection</p>
-          <button class="book-btn">Book Now</button>
-        </div>
-      </div>
-      <div class="card" data-category="cleaning" data-price="5399">
-        <img src="assets/img/ap9.png" alt="3BHK Cleaning">
-        <div class="card-body">
-          <h3>Apartment Cleaning - 3BHK Furnished</h3>
-          <p class="price">₹5399</p>
-          <p class="note">Estimate after inspection</p>
-          <button class="book-btn">Book Now</button>
-        </div>
-      </div>
-      <div class="card" data-category="cleaning" data-price="5399">
-        <img src="assets/img/ap10.png" alt="3BHK Cleaning">
-        <div class="card-body">
-          <h3>Apartment Cleaning - 3BHK Furnished</h3>
-          <p class="price">₹5399</p>
-          <p class="note">Estimate after inspection</p>
-          <button class="book-btn">Book Now</button>
-        </div>
-      </div>
-      <div class="card" data-category="cleaning" data-price="5399">
-        <img src="assets/img/ap11.png" alt="3BHK Cleaning">
-        <div class="card-body">
-          <h3>Apartment Cleaning - 3BHK Furnished</h3>
-          <p class="price">₹5399</p>
-          <p class="note">Estimate after inspection</p>
-          <button class="book-btn">Book Now</button>
-        </div>
-      </div>
-      <div class="card" data-category="cleaning" data-price="5399">
-        <img src="assets/img/ap12.png" alt="3BHK Cleaning">
-        <div class="card-body">
-          <h3>Apartment Cleaning - 3BHK Furnished</h3>
-          <p class="price">₹5399</p>
-          <p class="note">Estimate after inspection</p>
-          <button class="book-btn">Book Now</button>
-        </div>
-      </div>
-      <div class="card" data-category="cleaning" data-price="5399">
-        <img src="assets/img/ap13.png" alt="3BHK Cleaning">
-        <div class="card-body">
-          <h3>Apartment Cleaning - 3BHK Furnished</h3>
-          <p class="price">₹5399</p>
-          <p class="note">Estimate after inspection</p>
-          <button class="book-btn">Book Now</button>
-        </div>
-      </div>
-      <div class="card" data-category="cleaning" data-price="5399">
-        <img src="assets/img/ap14.png" alt="3BHK Cleaning">
-        <div class="card-body">
-          <h3>Apartment Cleaning - 3BHK Furnished</h3>
-          <p class="price">₹5399</p>
-          <p class="note">Estimate after inspection</p>
-          <button class="book-btn">Book Now</button>
-        </div>
-      </div>
-      <div class="card" data-category="cleaning" data-price="5399">
-        <img src="assets/img/ap15.png" alt="3BHK Cleaning">
-        <div class="card-body">
-          <h3>Apartment Cleaning - 3BHK Furnished</h3>
-          <p class="price">₹5399</p>
-          <p class="note">Estimate after inspection</p>
-          <button class="book-btn">Book Now</button>
-        </div>
-      </div>
-      <div class="card" data-category="cleaning" data-price="5399">
-        <img src="assets/img/ap16.png" alt="3BHK Cleaning">
-        <div class="card-body">
-          <h3>Apartment Cleaning - 3BHK Furnished</h3>
-          <p class="price">₹5399</p>
-          <p class="note">Estimate after inspection</p>
-          <button class="book-btn">Book Now</button>
-        </div>
-      </div>
-      <div class="card" data-category="cleaning" data-price="5399">
-        <img src="assets/img/ap17.png" alt="3BHK Cleaning">
-        <div class="card-body">
-          <h3>Apartment Cleaning - 3BHK Furnished</h3>
-          <p class="price">₹5399</p>
-          <p class="note">Estimate after inspection</p>
-          <button class="book-btn">Book Now</button>
-        </div>
-      </div>
-      <div class="card" data-category="cleaning" data-price="5399">
-        <img src="assets/img/ap18.png" alt="3BHK Cleaning">
-        <div class="card-body">
-          <h3>Apartment Cleaning - 3BHK Furnished</h3>
-          <p class="price">₹5399</p>
-          <p class="note">Estimate after inspection</p>
-          <button class="book-btn">Book Now</button>
-        </div>
-      </div>
-      <div class="card" data-category="cleaning" data-price="5399">
-        <img src="assets/img/ap19.png"3BHK Cleaning">
-        <div class="card-body">
-          <h3>Apartment Cleaning - 3BHK Furnished</h3>
-          <p class="price">₹5399</p>
-          <p class="note">Estimate after inspection</p>
-          <button class="book-btn">Book Now</button>
-        </div>
-      </div>
-      <div class="card" data-category="cleaning" data-price="5399">
-        <img src="assets/img/ap20.png" alt="3BHK Cleaning">
-        <div class="card-body">
-          <h3>Apartment Cleaning - 3BHK Furnished</h3>
-          <p class="price">₹5399</p>
-          <p class="note">Estimate after inspection</p>
-          <button class="book-btn">Book Now</button>
-        </div>
-      </div>
-      <!-- Villa Deep Cleaning -->
-      <div class="card" data-category="cleaning" data-price="3799">
-        <img src="images/villa2.jpg" alt="Villa 2BHK">
-        <div class="card-body">
-          <h3>Villa Cleaning - 2BHK Unfurnished</h3>
-          <p class="price">₹3799</p>
-          <p class="note">Final cost after inspection</p>
-          <button class="book-btn">Book Now</button>
-        </div>
-      </div>
-      <div class="card" data-category="cleaning" data-price="9299">
-        <img src="images/villa5.jpg" alt="Villa 5BHK">
-        <div class="card-body">
-          <h3>Villa Cleaning - 5BHK Furnished</h3>
-          <p class="price">₹9299</p>
-          <p class="note">Final cost after inspection</p>
-          <button class="book-btn">Book Now</button>
-        </div>
-      </div>
-
-      <!-- Kitchen -->
-      <div class="card" data-category="cleaning" data-price="1499">
-        <img src="images/kitchen-basic.jpg" alt="Kitchen Basic">
-        <div class="card-body">
-          <h3>Kitchen Cleaning - Basic</h3>
-          <p class="price">₹1499</p>
-          <p class="note">Deep cleaning service</p>
-          <button class="book-btn">Book Now</button>
-        </div>
-      </div>
-      <div class="card" data-category="cleaning" data-price="2299">
-        <img src="images/kitchen-premium.jpg" alt="Kitchen Premium">
-        <div class="card-body">
-          <h3>Kitchen Cleaning - Premium</h3>
-          <p class="price">₹2299</p>
-          <p class="note">Deep cleaning service</p>
-          <button class="book-btn">Book Now</button>
-        </div>
-      </div>
-
-      <!-- Sofa -->
-      <div class="card" data-category="cleaning" data-price="699">
-        <img src="images/sofa1.jpg" alt="Sofa 1">
-        <div class="card-body">
-          <h3>Sofa Cleaning - 1 Seater</h3>
-          <p class="price">₹699</p>
-          <p class="note">Dry + shampoo wash</p>
-          <button class="book-btn">Book Now</button>
-        </div>
-      </div>
-      <div class="card" data-category="cleaning" data-price="949">
-        <img src="images/sofa5.jpg" alt="Sofa 5">
-        <div class="card-body">
-          <h3>Sofa Cleaning - 5 Seater</h3>
-          <p class="price">₹949</p>
-          <p class="note">Dry + shampoo wash</p>
-          <button class="book-btn">Book Now</button>
-        </div>
-      </div>
-
-      <!-- Salon -->
-      <div class="card" data-category="salon" data-price="799">
-        <img src="images/salon1.jpg" alt="Salon Facial">
-        <div class="card-body">
-          <h3>Salon at Home - Facial</h3>
-          <p class="price">₹799</p>
-          <p class="note">Includes cleanup + mask</p>
-          <button class="book-btn">Book Now</button>
-        </div>
-      </div>
-
-      <!-- Appliances -->
-      <div class="card" data-category="appliance" data-price="499">
-        <img src="images/ac-service.jpg" alt="AC Service">
-        <div class="card-body">
-          <h3>AC Service</h3>
-          <p class="price">₹499</p>
-          <p class="note">Gas & spare parts extra</p>
-          <button class="book-btn">Book Now</button>
-        </div>
-      </div>
-
-      <div class="card" data-category="appliance" data-price="299">
-        <img src="images/washing-machine.jpg" alt="Washing Machine">
-        <div class="card-body">
-          <h3>Washing Machine Repair</h3>
-          <p class="price">₹299</p>
-          <p class="note">Inspection charge</p>
-          <button class="book-btn">Book Now</button>
-        </div>
-      </div>
-
-      <!-- Plumbing -->
-      <div class="card" data-category="repair" data-price="199">
-        <img src="images/plumbing.jpg" alt="Plumber">
-        <div class="card-body">
-          <h3>Plumbing Work</h3>
-          <p class="price">₹199 onwards</p>
-          <p class="note">Material cost extra</p>
-          <button class="book-btn">Book Now</button>
-        </div>
-      </div>
-
-      <!-- Electrical -->
-      <div class="card" data-category="repair" data-price="199">
-        <img src="images/electrical.jpg" alt="Electrical">
-        <div class="card-body">
-          <h3>Electrical Work</h3>
-          <p class="price">₹199 onwards</p>
-          <p class="note">Material cost extra</p>
-          <button class="book-btn">Book Now</button>
-        </div>
-      </div>
-
-      <!-- Painting -->
-      <div class="card" data-category="repair" data-price="4999">
-        <img src="images/painting.jpg" alt="Painting">
-        <div class="card-body">
-          <h3>House Painting</h3>
-          <p class="price">₹4999 onwards</p>
-          <p class="note">Inspection required for estimate</p>
-          <button class="book-btn">Book Now</button>
-        </div>
-      </div>
-
+      <div class="price">Rs. 0</div>
+      <a href="cart.html" class="book-btn" onclick="addToCart('Leather Sofa Cleaning', this)">Book Now</a>
     </div>
-  </section>
-  <script>
-    const categoryFilter=document.getElementById("categoryFilter");
-    const priceFilter=document.getElementById("priceFilter");
-    const serviceGrid=document.getElementById("serviceGrid");
-    const cards=Array.from(serviceGrid.children);
+  </div>
 
-    categoryFilter.addEventListener("change",()=>{
-      const value=categoryFilter.value;
-      cards.forEach(card=>{
-        card.style.display=(value==="all"||card.dataset.category===value)?"block":"none";
-      });
-    });
+  <!-- Recliner Sofa -->
+  <div class="service-card">
+    <img src="sofa 3.png" alt="Recliner Cleaning">
+    <div class="content">
+      <h2>Recliner Cleaning</h2>
+      <p>Specialized deep cleaning for recliners to ensure comfort & hygiene.</p>
+      <div class="selector">
+        <select onchange="updatePrice(this, { 'Single Recliner':599, 'Double Recliner':999 })">
+          <option value="">Select Type</option>
+          <option value="Single Recliner">Single Recliner</option>
+          <option value="Double Recliner">Double Recliner</option>
+        </select>
+      </div>
+      <div class="price">Rs. 0</div>
+      <a href="cart.html" class="book-btn" onclick="addToCart('Recliner Cleaning', this)">Book Now</a>
+    </div>
+  </div>
 
-    priceFilter.addEventListener("change",()=>{
-      const value=priceFilter.value;
-      let sortedCards=[...cards];
-      if(value==="lowHigh"){
-        sortedCards.sort((a,b)=>a.dataset.price-b.dataset.price);
-      }else if(value==="highLow"){
-        sortedCards.sort((a,b)=>b.dataset.price-a.dataset.price);
-      }
-      serviceGrid.innerHTML="";
-      sortedCards.forEach(card=>serviceGrid.appendChild(card));
-    });
-  </script>
+</div>
+
+<script>
+  function updatePrice(select, prices) {
+    let priceDiv = select.parentElement.nextElementSibling;
+    let val = select.value;
+    if (val && prices[val]) {
+      priceDiv.textContent = "Rs. " + prices[val];
+      priceDiv.setAttribute("data-price", prices[val]);
+      priceDiv.setAttribute("data-option", val);
+    } else {
+      priceDiv.textContent = "Rs. 0";
+      priceDiv.removeAttribute("data-price");
+      priceDiv.removeAttribute("data-option");
+    }
+  }
+
+  function addToCart(service, btn) {
+    let priceDiv = btn.previousElementSibling;
+    let option = priceDiv.getAttribute("data-option") || "Not Selected";
+    let price = priceDiv.getAttribute("data-price") || "0";
+
+    if (price === "0" || option === "Not Selected") {
+      alert("Please select an option before booking!");
+      return;
+    }
+
+    let item = { name: service, option: option, price: parseInt(price), qty: 1 };
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.push(item);
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    window.location.href = "cart.html";
+  }
+</script>
+
+<!--========== FOOTER ==========-->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-about">
+      <h2>Homesure</h2>
+      <p>Your trusted home service partner. Quality, convenience, and reliability at your doorstep.</p>
+    </div>
+    <div class="footer-links">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="Services.html">Services</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="https://wa.me/919513072123">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-contact">
+      <h3>Contact Us</h3>
+      <p>Email: homesure.co@gmail.com</p>
+      <p>Phone: +91 9513072123</p>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/homesure.co"><i class='bx bxl-instagram'></i></a>
+        <a href="https://wa.me/919513072123"><i class='bx bxl-whatsapp'></i></a>
+      </div>
+    </div>
+    <div class="footer-newsletter">
+      <h3>Subscribe</h3>
+      <p>Get the latest updates and offers</p>
+      <form action="https://wa.me/919513072123">
+        <input type="email" placeholder="Your email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Homesure. All rights reserved.</p>
+  </div>
+</footer>
+
+<style>
+.footer {
+  background: #111;
+  color: #fff;
+  padding: 50px 20px 20px 20px;
+  font-family: 'Poppins', sans-serif;
+}
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+}
+.footer h2, .footer h3 {
+  color: #00f2fe;
+  margin-bottom: 15px;
+}
+.footer p, .footer li {
+  color: #ccc;
+  font-size: 14px;
+}
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+.footer-links ul li {
+  margin-bottom: 10px;
+}
+.footer-links ul li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.footer-links ul li a:hover {
+  color:#00f2fe;
+}
+.social-icons a {
+  color: #ccc;
+  font-size: 20px;
+  margin-right: 10px;
+  transition: 0.3s;
+}
+.social-icons a:hover {
+  color: #00f2fe;
+}
+.footer-newsletter form {
+  display: flex;
+  gap: 10px;
+}
+.footer-newsletter input[type="email"] {
+  flex: 1;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+}
+.footer-newsletter button {
+  padding: 8px 15px;
+  border: none;
+  background: #00f2fe;
+  color: #111;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.footer-newsletter button:hover {
+  background:#0096c7;
+  color: #fff;
+}
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  border-top: 1px solid #333;
+  padding-top: 20px;
+  font-size: 14px;
+  color: #888;
+}
+</style>
+
 </body>
 </html>
