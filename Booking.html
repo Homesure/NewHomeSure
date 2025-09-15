@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+           <link rel="icon" type="image/png" sizes="32x32" href="assets/img/New logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/New logo.png">
+  <title>Our Services</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f9f9f9;
+      color: #333;
+    }
+    header {
+      text-align: center;
+      padding: 2rem;
+      background: linear-gradient(135deg, #0077ff, #00d4ff);
+      color: #fff;
+      font-size: 2rem;
+      font-weight: 700;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    .services-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 30px;
+    }
+    .service-card {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+    }
+    .service-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .service-content {
+      padding: 20px;
+      text-align: center;
+    }
+    .service-content h3 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+    }
+    .dropdown {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      outline: none;
+      font-size: 1rem;
+    }
+    .book-btn {
+      display: inline-block;
+      padding: 12px 20px;
+      margin-top: 10px;
+      background: linear-gradient(135deg, #0077ff, #00d4ff);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+    .book-btn:hover {
+      transform: scale(1.05);
+      background: linear-gradient(135deg, #005fcc, #00a6cc);
+    }
+    .book-btn:active {
+      transform: scale(0.95);
+    }
+    footer {
+      margin-top: 30px;
+      text-align: center;
+      padding: 20px;
+      background: #222;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <header>Our Premium Home Services</header>
+
+  <div class="services-container">
+    <!-- Kitchen -->
+    <div class="service-card">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="Kitchen">
+      <div class="service-content">
+        <h3>Kitchen Cleaning</h3>
+        <select class="dropdown" id="kitchen">
+          <option value="">Select Service</option>
+          <option value="Basic Kitchen Cleaning-499">Basic Cleaning - ₹499</option>
+          <option value="Deep Kitchen Cleaning-999">Deep Cleaning - ₹999</option>
+        </select>
+        <button class="book-btn" onclick="addToCart('kitchen')">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Laundry -->
+    <div class="service-card">
+      <img src="https://images.unsplash.com/photo-1581579185169-9c7963f6d63b" alt="Laundry">
+      <div class="service-content">
+        <h3>Laundry Services</h3>
+        <select class="dropdown" id="laundry">
+          <option value="">Select Service</option>
+          <option value="Wash & Fold-199">Wash & Fold - ₹199</option>
+          <option value="Wash & Iron-299">Wash & Iron - ₹299</option>
+        </select>
+        <button class="book-btn" onclick="addToCart('laundry')">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Plumbing -->
+    <div class="service-card">
+      <img src="https://images.unsplash.com/photo-1581579185169-6f6f63f6d63c" alt="Plumbing">
+      <div class="service-content">
+        <h3>Plumbing</h3>
+        <select class="dropdown" id="plumbing">
+          <option value="">Select Service</option>
+          <option value="Tap Fixing-299">Tap Fixing - ₹299</option>
+          <option value="Pipe Repair-499">Pipe Repair - ₹499</option>
+        </select>
+        <button class="book-btn" onclick="addToCart('plumbing')">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Electrician -->
+    <div class="service-card">
+      <img src="https://images.unsplash.com/photo-1595421514285-efb26de3d3a7" alt="Electrician">
+      <div class="service-content">
+        <h3>Electrician</h3>
+        <select class="dropdown" id="electrician">
+          <option value="">Select Service</option>
+          <option value="Fan Installation-399">Fan Installation - ₹399</option>
+          <option value="Switch Repair-199">Switch Repair - ₹199</option>
+        </select>
+        <button class="book-btn" onclick="addToCart('electrician')">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- AC -->
+    <div class="service-card">
+      <img src="https://images.unsplash.com/photo-1603791440384-56cd371ee9a7" alt="AC Services">
+      <div class="service-content">
+        <h3>AC Services</h3>
+        <select class="dropdown" id="ac">
+          <option value="">Select Service</option>
+          <option value="AC Repair-599">AC Repair - ₹599</option>
+          <option value="AC Deep Cleaning-999">AC Deep Cleaning - ₹999</option>
+        </select>
+        <button class="book-btn" onclick="addToCart('ac')">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Sofa -->
+    <div class="service-card">
+      <img src="https://images.unsplash.com/photo-1581579185156-c9a7dc63f6d6" alt="Sofa">
+      <div class="service-content">
+        <h3>Sofa Cleaning</h3>
+        <select class="dropdown" id="sofa">
+          <option value="">Select Service</option>
+          <option value="2-Seater Sofa-699">2-Seater - ₹699</option>
+          <option value="5-Seater Sofa-1299">5-Seater - ₹1299</option>
+        </select>
+        <button class="book-btn" onclick="addToCart('sofa')">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Bathroom -->
+    <div class="service-card">
+      <img src="https://images.unsplash.com/photo-1597852195381-3b6d24b6f8b2" alt="Bathroom">
+      <div class="service-content">
+        <h3>Bathroom Cleaning</h3>
+        <select class="dropdown" id="bathroom">
+          <option value="">Select Service</option>
+          <option value="Basic Bathroom Cleaning-399">Basic - ₹399</option>
+          <option value="Deep Bathroom Cleaning-799">Deep Cleaning - ₹799</option>
+        </select>
+        <button class="book-btn" onclick="addToCart('bathroom')">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Deep Cleaning -->
+    <div class="service-card">
+      <img src="https://images.unsplash.com/photo-1581579185133-1d63f6d63a7" alt="Deep Cleaning">
+      <div class="service-content">
+        <h3>Deep Cleaning</h3>
+        <select class="dropdown" id="deep">
+          <option value="">Select Service</option>
+          <option value="1 BHK Deep Cleaning-1999">1 BHK - ₹1999</option>
+          <option value="2 BHK Deep Cleaning-2999">2 BHK - ₹2999</option>
+        </select>
+        <button class="book-btn" onclick="addToCart('deep')">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    function addToCart(serviceId) {
+      const select = document.getElementById(serviceId);
+      const value = select.value;
+
+      if (!value) {
+        alert("Please select a service first!");
+        return;
+      }
+
+      let [name, price] = value.split("-");
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.push({ name, price: parseInt(price) });
+      localStorage.setItem("cart", JSON.stringify(cart));
+
+      // Animation effect
+      alert(name + " added to cart ✅");
+      window.location.href = "cart.html"; // redirect to cart page
+    }
+  </script>
+</body>
+</html>
+<!--========== FOOTER ==========-->
+      <!-- ======= Stylish Footer ======= -->
+<footer class="footer">
+  <div class="footer-container">
+    <!-- About Section -->
+    <div class="footer-about">
+      <h2>Homesure</h2>
+      <p>Your trusted home service partner. Quality, convenience, and reliability at your doorstep.</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-links">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="Services.html">Services</a></li>
+        <li><a href="Services.html">Book Now</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="https://wa.me/919513072123">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="footer-contact">
+      <h3>Contact Us</h3>
+      <p>Email: homesure.co@gmail.com</p>
+      <p>Phone: +91 9513072123</p>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/homesure.co?igsh=OW03aGh4M2M1dGw4"><i class='bx bxl-instagram'></i></a>
+        <a href="https://wa.me/919513072123"><i class='bx bxl-whatsapp'></i></a>
+      </div>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="footer-newsletter">
+      <h3>Subscribe</h3>
+      <p>Get the latest updates and offers</p>
+      <form action="https://wa.me/919513072123">
+        <input type="email" placeholder="Your email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+  
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Homesure. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- ======= Footer CSS ======= -->
+<style>
+.footer {
+  background: #111;
+  color: #fff;
+  padding: 50px 20px 20px 20px;
+  font-family: 'Poppins', sans-serif;
+}
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+}
+.footer h2, .footer h3 {
+  color: #069C54;
+  margin-bottom: 15px;
+}
+.footer p, .footer li {
+  color: #ccc;
+  font-size: 14px;
+}
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+.footer-links ul li {
+  margin-bottom: 10px;
+}
+.footer-links ul li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.footer-links ul li a:hover {
+  color:#069C54;
+}
+.social-icons a {
+  color: #ccc;
+  font-size: 20px;
+  margin-right: 10px;
+  transition: 0.3s;
+}
+.social-icons a:hover {
+  color: #000000;
+}
+.footer-newsletter form {
+  display: flex;
+  gap: 10px;
+}
+.footer-newsletter input[type="email"] {
+  flex: 1;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+}
+.footer-newsletter button {
+  padding: 8px 15px;
+  border: none;
+  background: #069C54;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.footer-newsletter button:hover {
+  background:#069C54;
+}
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  border-top: 1px solid #333;
+  padding-top: 20px;
+  font-size: 14px;
+  color: #888;
+}
+</style>

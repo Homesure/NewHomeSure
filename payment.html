@@ -1,0 +1,57 @@
+<div class="success-box">
+  <h2>✅ Payment Successful!</h2>
+  <p>Thank you for booking with <strong>Homesure</strong>.</p>
+
+  <h3>🛒 Your Order</h3>
+  <table class="order-summary" id="order-summary">
+    <thead>
+      <tr>
+        <th>Service</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+    <tfoot>
+      <tr>
+        <td><strong>Total Paid</strong></td>
+        <td>₹<span id="final-amount">0</span></td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <a href="index.html">Back to Home</a>
+</div>
+
+<style>
+.order-summary {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+.order-summary th, .order-summary td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+.order-summary th {
+  background: #f0f0f0;
+}
+</style>
+
+<script>
+// Load order details
+const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+const total = localStorage.getItem("cartTotal") || 0;
+
+const tbody = document.querySelector("#order-summary tbody");
+cartItems.forEach(item => {
+  const row = document.createElement("tr");
+  row.innerHTML = `<td>${item.name}</td><td>₹${item.price}</td>`;
+  tbody.appendChild(row);
+});
+document.getElementById("final-amount").innerText = total;
+
+// Clear cart after success
+localStorage.removeItem("cartItems");
+localStorage.removeItem("cartTotal");
+</script>

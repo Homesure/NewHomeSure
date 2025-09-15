@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+           <link rel="icon" type="image/png" sizes="32x32" href="assets/img/New logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/New logo.png">
+  <title>Service Subscriptions</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f7fa;
+      color: #333;
+    }
+
+    header {
+      text-align: center;
+      background: linear-gradient(135deg, #007bff, #00c6ff);
+      color: #fff;
+      padding: 25px;
+      font-size: 30px;
+      font-weight: bold;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 25px;
+    }
+
+    .service-card {
+      background: #fff;
+      border-radius: 15px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .service-title {
+      font-size: 22px;
+      font-weight: bold;
+      color: #007bff;
+      margin-bottom: 15px;
+    }
+
+    .plans {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 15px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .plan {
+      background: #f8f9fa;
+      border-radius: 10px;
+      padding: 15px;
+      width: 100px;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .plan:hover {
+      background: #e9f3ff;
+      transform: scale(1.05);
+    }
+
+    .plan span {
+      display: block;
+      font-size: 16px;
+      font-weight: bold;
+      color: #28a745;
+    }
+
+    .book-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 15px;
+      color: #fff;
+      background: linear-gradient(135deg, #007bff, #00c6ff);
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .book-btn:hover {
+      background: linear-gradient(135deg, #0056b3, #0095c9);
+      transform: scale(1.05);
+    }
+
+    .back-btn {
+      display: block;
+      width: fit-content;
+      margin: 40px auto;
+      padding: 12px 24px;
+      font-size: 16px;
+      color: #fff;
+      background: #6c757d;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background: #5a6268;
+    }
+  </style>
+</head>
+<body>
+  <header> HomeSure Service Subscription Plans</header>
+
+  <div class="container">
+    <!-- AC Services -->
+    <div class="service-card">
+      <div class="service-title">AC Services</div>
+      <div class="plans">
+        <div class="plan">Day <span>₹199</span></div>
+        <div class="plan">Week <span>₹999</span></div>
+        <div class="plan">Month <span>₹2999</span></div>
+      </div>
+      <a href="ac.html" class="book-btn">Book Now</a>
+    </div>
+
+    <!-- Plumbing -->
+    <div class="service-card">
+      <div class="service-title">Plumbing</div>
+      <div class="plans">
+        <div class="plan">Day <span>₹149</span></div>
+        <div class="plan">Week <span>₹799</span></div>
+        <div class="plan">Month <span>₹2499</span></div>
+      </div>
+      <a href="plumbing.html" class="book-btn">Book Now</a>
+    </div>
+
+    <!-- Electrician -->
+    <div class="service-card">
+      <div class="service-title">Electrician</div>
+      <div class="plans">
+        <div class="plan">Day <span>₹199</span></div>
+        <div class="plan">Week <span>₹899</span></div>
+        <div class="plan">Month <span>₹2699</span></div>
+      </div>
+      <a href="Electrician.html" class="book-btn">Book Now</a>
+    </div>
+
+    <!-- Laundry -->
+    <div class="service-card">
+      <div class="service-title">Laundry</div>
+      <div class="plans">
+        <div class="plan">Day <span>₹99</span></div>
+        <div class="plan">Week <span>₹499</span></div>
+        <div class="plan">Month <span>₹1499</span></div>
+      </div>
+      <a href="laundry.html" class="book-btn">Book Now</a>
+    </div>
+
+    <!-- Kitchen Cleaning -->
+    <div class="service-card">
+      <div class="service-title">Kitchen Cleaning</div>
+      <div class="plans">
+        <div class="plan">Day <span>₹199</span></div>
+        <div class="plan">Week <span>₹999</span></div>
+        <div class="plan">Month <span>₹2999</span></div>
+      </div>
+      <a href="kitchen.html" class="book-btn">Book Now</a>
+    </div>
+
+    <!-- Sofa Cleaning -->
+    <div class="service-card">
+      <div class="service-title">Sofa Cleaning</div>
+      <div class="plans">
+        <div class="plan">Day <span>₹249</span></div>
+        <div class="plan">Week <span>₹1199</span></div>
+        <div class="plan">Month <span>₹3499</span></div>
+      </div>
+      <a href="sofa.html" class="book-btn">Book Now</a>
+    </div>
+
+    <!-- Bathroom Cleaning -->
+    <div class="service-card">
+      <div class="service-title">Bathroom Cleaning</div>
+      <div class="plans">
+        <div class="plan">Day <span>₹179</span></div>
+        <div class="plan">Week <span>₹899</span></div>
+        <div class="plan">Month <span>₹2699</span></div>
+      </div>
+      <a href="Bathroomcleaning.html" class="book-btn">Book Now</a>
+    </div>
+
+    <!-- Deep Cleaning -->
+    <div class="service-card">
+      <div class="service-title">Deep Cleaning</div>
+      <div class="plans">
+        <div class="plan">Day <span>₹499</span></div>
+        <div class="plan">Week <span>₹2499</span></div>
+        <div class="plan">Month <span>₹7499</span></div>
+      </div>
+      <a href="Deepclean.html" class="book-btn">Book Now</a>
+    </div>
+  </div>
+
+  <a href="index.html" class="back-btn">⬅ Back to Booking</a>
+</body>
+</html>
+<!--========== FOOTER ==========-->
+      <!-- ======= Stylish Footer ======= -->
+<footer class="footer">
+  <div class="footer-container">
+    <!-- About Section -->
+    <div class="footer-about">
+      <h2>Homesure</h2>
+      <p>Your trusted home service partner. Quality, convenience, and reliability at your doorstep.</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-links">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="Services.html">Services</a></li>
+        <li><a href="Services.html">Book Now</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="https://wa.me/919513072123">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="footer-contact">
+      <h3>Contact Us</h3>
+      <p>Email: homesure.co@gmail.com</p>
+      <p>Phone: +91 9513072123</p>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/homesure.co?igsh=OW03aGh4M2M1dGw4"><i class='bx bxl-instagram'></i></a>
+        <a href="https://wa.me/919513072123"><i class='bx bxl-whatsapp'></i></a>
+      </div>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="footer-newsletter">
+      <h3>Subscribe</h3>
+      <p>Get the latest updates and offers</p>
+      <form action="https://wa.me/919513072123">
+        <input type="email" placeholder="Your email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+  
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Homesure. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- ======= Footer CSS ======= -->
+<style>
+.footer {
+  background: #111;
+  color: #fff;
+  padding: 50px 20px 20px 20px;
+  font-family: 'Poppins', sans-serif;
+}
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+}
+.footer h2, .footer h3 {
+  color: #069C54;
+  margin-bottom: 15px;
+}
+.footer p, .footer li {
+  color: #ccc;
+  font-size: 14px;
+}
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+.footer-links ul li {
+  margin-bottom: 10px;
+}
+.footer-links ul li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.footer-links ul li a:hover {
+  color:#069C54;
+}
+.social-icons a {
+  color: #ccc;
+  font-size: 20px;
+  margin-right: 10px;
+  transition: 0.3s;
+}
+.social-icons a:hover {
+  color: #000000;
+}
+.footer-newsletter form {
+  display: flex;
+  gap: 10px;
+}
+.footer-newsletter input[type="email"] {
+  flex: 1;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+}
+.footer-newsletter button {
+  padding: 8px 15px;
+  border: none;
+  background: #069C54;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.footer-newsletter button:hover {
+  background:#069C54;
+}
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  border-top: 1px solid #333;
+  padding-top: 20px;
+  font-size: 14px;
+  color: #888;
+}
+</style>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+           <link rel="icon" type="image/png" sizes="32x32" href="assets/img/New logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/New logo.png">
+  <title>Homesure Plumbing Services</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f6f9;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(135deg, #36d1dc, #5b86e5);
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    p {
+      margin-top: 8px;
+      font-size: 1.1rem;
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      padding: 30px 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 25px;
+    }
+    .service-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+    .service-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .content {
+      padding: 20px;
+    }
+    .content h2 {
+      margin: 0;
+      color: #36d1dc;
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+    }
+    .content p {
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+    .selector {
+      margin-bottom: 12px;
+    }
+    select {
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      width: 100%;
+      font-size: 1rem;
+    }
+    .price {
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: #ff6f61;
+      margin-bottom: 10px;
+    }
+    .book-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #ff6f61, #e63946);
+      color: white;
+      padding: 10px 18px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: 0.3s;
+    }
+    .book-btn:hover {
+      background: linear-gradient(135deg, #e63946, #c81d25);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Homesure Plumbing Services</h1>
+  <p>Reliable & Affordable Plumbing Solutions</p>
+</header>
+
+<div class="container">
+
+  <!-- Tap & Faucet Repair -->
+  <div class="service-card">
+    <img src="assets/img/plumber 1.png" alt="Tap Repair">
+    <div class="content">
+      <h2>Tap & Faucet Repair</h2>
+      <p>Fixing leaks, drips and faucet replacements.</p>
+      <div class="selector">
+        <select onchange="updatePrice(this, { 'Basic Repair':300, 'New Installation':600 })">
+          <option value="">Select Option</option>
+          <option value="Basic Repair">Basic Repair</option>
+          <option value="New Installation">New Installation</option>
+        </select>
+      </div>
+      <div class="price">Rs. 0</div>
+      <a href="cart.html" class="book-btn" onclick="addToCart('Tap & Faucet Repair', this)">Book Now</a>
+    </div>
+  </div>
+
+  <!-- Blocked Drain -->
+  <div class="service-card">
+    <img src="assets/img/plumber2.png" alt="Drain Cleaning">
+    <div class="content">
+      <h2>Blocked Drain</h2>
+      <p>Unclogging sinks, bathrooms & floor drains.</p>
+      <div class="selector">
+        <select onchange="updatePrice(this, { 'Sink/Small Drain':400, 'Bathroom Drain':600, 'Main Drain':1200 })">
+          <option value="">Select Drain Type</option>
+          <option value="Sink/Small Drain">Sink/Small Drain</option>
+          <option value="Bathroom Drain">Bathroom Drain</option>
+          <option value="Main Drain">Main Drain</option>
+        </select>
+      </div>
+      <div class="price">Rs. 0</div>
+      <a href="cart.html" class="book-btn" onclick="addToCart('Blocked Drain', this)">Book Now</a>
+    </div>
+  </div>
+
+  <!-- Pipe Leakage Fix -->
+  <div class="service-card">
+    <img src="assets/img/plumber5.png" alt="Pipe Repair">
+    <div class="content">
+      <h2>Pipe Leakage Fix</h2>
+      <p>Leakage detection, sealing & replacement of pipes.</p>
+      <div class="selector">
+        <select onchange="updatePrice(this, { 'Minor Leak':500, 'Major Leak':1000 })">
+          <option value="">Select Service</option>
+          <option value="Minor Leak">Minor Leak</option>
+          <option value="Major Leak">Major Leak</option>
+        </select>
+      </div>
+      <div class="price">Rs. 0</div>
+      <a href="cart.html" class="book-btn" onclick="addToCart('Pipe Leakage Fix', this)">Book Now</a>
+    </div>
+  </div>
+
+  <!-- Toilet Repair -->
+  <div class="service-card">
+    <img src="assets/img/plumber4.png" alt="Toilet Repair">
+    <div class="content">
+      <h2>Toilet Repair</h2>
+      <p>Flush tank repair, leak fixing & new installations.</p>
+      <div class="selector">
+        <select onchange="updatePrice(this, { 'Flush Repair':600, 'Toilet Installation':1500 })">
+          <option value="">Select Option</option>
+          <option value="Flush Repair">Flush Repair</option>
+          <option value="Toilet Installation">Toilet Installation</option>
+        </select>
+      </div>
+      <div class="price">Rs. 0</div>
+      <a href="cart.html" class="book-btn" onclick="addToCart('Toilet Repair', this)">Book Now</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function updatePrice(select, prices) {
+    let priceDiv = select.parentElement.nextElementSibling;
+    let val = select.value;
+    if (val && prices[val]) {
+      priceDiv.textContent = "Rs. " + prices[val];
+      priceDiv.setAttribute("data-price", prices[val]);
+      priceDiv.setAttribute("data-option", val);
+    } else {
+      priceDiv.textContent = "Rs. 0";
+      priceDiv.removeAttribute("data-price");
+      priceDiv.removeAttribute("data-option");
+    }
+  }
+
+  function addToCart(service, btn) {
+    let priceDiv = btn.previousElementSibling;
+    let option = priceDiv.getAttribute("data-option") || "Not Selected";
+    let price = priceDiv.getAttribute("data-price") || "0";
+
+    if (price === "0" || option === "Not Selected") {
+      alert("Please select an option before booking!");
+      return;
+    }
+
+    let item = { name: service, option: option, price: parseInt(price), qty: 1 };
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.push(item);
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    window.location.href = "cart.html";
+  }
+</script>
+
+</body>
+</html>
+<!--========== FOOTER ==========-->
+      <!-- ======= Stylish Footer ======= -->
+<footer class="footer">
+  <div class="footer-container">
+    <!-- About Section -->
+    <div class="footer-about">
+      <h2>Homesure</h2>
+      <p>Your trusted home service partner. Quality, convenience, and reliability at your doorstep.</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-links">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="Services.html">Services</a></li>
+        <li><a href="Services.html">Book Now</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="https://wa.me/919513072123">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="footer-contact">
+      <h3>Contact Us</h3>
+      <p>Email: homesure.co@gmail.com</p>
+      <p>Phone: +91 9513072123</p>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/homesure.co?igsh=OW03aGh4M2M1dGw4"><i class='bx bxl-instagram'></i></a>
+        <a href="https://wa.me/919513072123"><i class='bx bxl-whatsapp'></i></a>
+      </div>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="footer-newsletter">
+      <h3>Subscribe</h3>
+      <p>Get the latest updates and offers</p>
+      <form action="https://wa.me/919513072123">
+        <input type="email" placeholder="Your email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+  
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Homesure. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- ======= Footer CSS ======= -->
+<style>
+.footer {
+  background: #111;
+  color: #fff;
+  padding: 50px 20px 20px 20px;
+  font-family: 'Poppins', sans-serif;
+}
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+}
+.footer h2, .footer h3 {
+  color: #069C54;
+  margin-bottom: 15px;
+}
+.footer p, .footer li {
+  color: #ccc;
+  font-size: 14px;
+}
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+.footer-links ul li {
+  margin-bottom: 10px;
+}
+.footer-links ul li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.footer-links ul li a:hover {
+  color:#069C54;
+}
+.social-icons a {
+  color: #ccc;
+  font-size: 20px;
+  margin-right: 10px;
+  transition: 0.3s;
+}
+.social-icons a:hover {
+  color: #000000;
+}
+.footer-newsletter form {
+  display: flex;
+  gap: 10px;
+}
+.footer-newsletter input[type="email"] {
+  flex: 1;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+}
+.footer-newsletter button {
+  padding: 8px 15px;
+  border: none;
+  background: #069C54;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.footer-newsletter button:hover {
+  background:#069C54;
+}
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  border-top: 1px solid #333;
+  padding-top: 20px;
+  font-size: 14px;
+  color: #888;
+}
+</style>

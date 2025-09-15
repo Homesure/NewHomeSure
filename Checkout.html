@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+           <link rel="icon" type="image/png" sizes="32x32" href="assets/img/New logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/New logo.png">
+  <title>Checkout - Homesure</title>
+  <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f3f3f3, #ece9e6);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .checkout-box {
+      background: #fff;
+      padding: 30px;
+      border-radius: 20px;
+      width: 420px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+      text-align: center;
+      animation: fadeIn 0.6s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    h2 {
+      margin-bottom: 25px;
+      color: #222;
+      font-size: 22px;
+    }
+    .amount-box {
+      background: #fafafa;
+      border: 1px solid #eee;
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .amount-row {
+      display: flex;
+      justify-content: space-between;
+      margin: 8px 0;
+      font-size: 16px;
+      color: #555;
+    }
+    .final-total {
+      font-size: 20px;
+      font-weight: bold;
+      color: #2e7d32;
+      margin-top: 15px;
+      border-top: 1px solid #ddd;
+      padding-top: 10px;
+    }
+    .promo-box {
+      margin-bottom: 20px;
+      display: flex;
+      gap: 10px;
+    }
+    .promo-box input {
+      flex: 1;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+    .promo-box button {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 8px;
+      background: #ff9800;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .promo-box button:hover {
+      opacity: 0.9;
+    }
+    .payment-options {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .payment-options button {
+      padding: 14px;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: 0.3s ease;
+      font-weight: 600;
+    }
+    .cash-btn { background: #4CAF50; color: white; }
+    .upi-btn { background: #673AB7; color: white; }
+    .payment-options button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    }
+  </style>
+</head>
+<body>
+  <div class="checkout-box">
+    <h2>Checkout</h2>
+    
+    <!-- Amount Summary -->
+    <div class="amount-box">
+      <div class="amount-row">
+        <span>Subtotal</span>
+        <span>₹<span id="subtotal">0</span></span>
+      </div>
+      <div class="amount-row">
+        <span>Tax (18%)</span>
+        <span>₹<span id="tax">0</span></span>
+      </div>
+      <div class="amount-row" id="discount-row" style="display: none;">
+        <span>Discount</span>
+        <span>-₹<span id="discount">0</span></span>
+      </div>
+      <div class="final-total">
+        Total Amount: ₹<span id="final-amount">0</span>
+      </div>
+    </div>
+
+    <!-- Promo Code -->
+    <div class="promo-box">
+      <input type="text" id="promoCode" placeholder="Enter Promo Code">
+      <button onclick="applyPromo()">Apply</button>
+    </div>
+
+    <!-- Payment Options -->
+    <div class="payment-options">
+      <button class="cash-btn" onclick="payCash()">
+        <i class='bx bx-money'></i> Pay with Cash
+      </button>
+      <button class="upi-btn" onclick="payUPI()">
+        <i class='bx bx-credit-card'></i> Pay with UPI
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // ✅ Get subtotal from cart storage (always clean it!)
+    let subtotal = localStorage.getItem("cartTotal") || "0";
+    subtotal = parseFloat(subtotal.toString().replace(/[^0-9.]/g, "")) || 0;
+
+    let discount = 0;
+
+    // ✅ Update totals
+    function updateTotals() {
+      const tax = +(subtotal * 0.18).toFixed(2);
+      let finalAmount = subtotal + tax - discount;
+      if (finalAmount < 0) finalAmount = 0;
+
+      document.getElementById("subtotal").innerText = subtotal.toFixed(2);
+      document.getElementById("tax").innerText = tax.toFixed(2);
+      document.getElementById("discount").innerText = discount.toFixed(2);
+      document.getElementById("final-amount").innerText = finalAmount.toFixed(2);
+
+      // Save for success page
+      localStorage.setItem("checkoutFinal", finalAmount.toFixed(2));
+    }
+
+    // ✅ Apply promo codes
+    function applyPromo() {
+      const code = document.getElementById("promoCode").value.trim().toUpperCase();
+
+      if (code === "SAVE10") {
+        discount = subtotal * 0.10; // 10% off
+        document.getElementById("discount-row").style.display = "flex";
+        alert("🎉 Promo applied: 10% off");
+      } else if (code === "SAVE200") {
+        discount = 200; // Flat ₹200 off
+        document.getElementById("discount-row").style.display = "flex";
+        alert("🎉 Promo applied: ₹200 off");
+      } else {
+        discount = 0;
+        document.getElementById("discount-row").style.display = "none";
+        alert("❌ Invalid Promo Code");
+      }
+      updateTotals();
+    }
+
+    // ✅ Payment handlers
+    function payCash() {
+      alert("✅ Cash Payment Selected. Please pay on service delivery.");
+      window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSejvo_KI0k1ZWQJBhXDK1i7CjgwcY5GuFFMfGf4mNQmRcL33g/viewform?usp=header";
+    }
+
+    function payUPI() {
+      alert("📲 UPI Payment Selected. Redirecting...");
+      window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSejvo_KI0k1ZWQJBhXDK1i7CjgwcY5GuFFMfGf4mNQmRcL33g/viewform?usp=header";
+    }
+
+    // Init load
+    updateTotals();
+  </script>
+</body>
+</html>
+<!--========== FOOTER ==========-->
+      <!-- ======= Stylish Footer ======= -->
+<footer class="footer">
+  <div class="footer-container">
+    <!-- About Section -->
+    <div class="footer-about">
+      <h2>Homesure</h2>
+      <p>Your trusted home service partner. Quality, convenience, and reliability at your doorstep.</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-links">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="Services.html">Services</a></li>
+        <li><a href="Services.html">Book Now</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="https://wa.me/919513072123">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="footer-contact">
+      <h3>Contact Us</h3>
+      <p>Email: homesure.co@gmail.com</p>
+      <p>Phone: +91 9513072123</p>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/homesure.co?igsh=OW03aGh4M2M1dGw4"><i class='bx bxl-instagram'></i></a>
+        <a href="https://wa.me/919513072123"><i class='bx bxl-whatsapp'></i></a>
+      </div>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="footer-newsletter">
+      <h3>Subscribe</h3>
+      <p>Get the latest updates and offers</p>
+      <form action="https://wa.me/919513072123">
+        <input type="email" placeholder="Your email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+  
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Homesure. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- ======= Footer CSS ======= -->
+<style>
+.footer {
+  background: #111;
+  color: #fff;
+  padding: 50px 20px 20px 20px;
+  font-family: 'Poppins', sans-serif;
+}
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+}
+.footer h2, .footer h3 {
+  color: #069C54;
+  margin-bottom: 15px;
+}
+.footer p, .footer li {
+  color: #ccc;
+  font-size: 14px;
+}
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+.footer-links ul li {
+  margin-bottom: 10px;
+}
+.footer-links ul li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.footer-links ul li a:hover {
+  color:#069C54;
+}
+.social-icons a {
+  color: #ccc;
+  font-size: 20px;
+  margin-right: 10px;
+  transition: 0.3s;
+}
+.social-icons a:hover {
+  color: #000000;
+}
+.footer-newsletter form {
+  display: flex;
+  gap: 10px;
+}
+.footer-newsletter input[type="email"] {
+  flex: 1;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+}
+.footer-newsletter button {
+  padding: 8px 15px;
+  border: none;
+  background: #069C54;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.footer-newsletter button:hover {
+  background:#069C54;
+}
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  border-top: 1px solid #333;
+  padding-top: 20px;
+  font-size: 14px;
+  color: #888;
+}
+</style>

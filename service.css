@@ -1,0 +1,91 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f9f9f9;
+}
+
+/* Header Styles */
+.header {
+    background-color: #4A00E0;
+    color: white;
+    text-align: center;
+    padding: 30px 15px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+.header p {
+    margin-top: 10px;
+    font-size: 1.1em;
+}
+
+/* Services Grid */
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.service-card {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.service-card h2 {
+    margin: 0 0 5px 0;
+}
+
+.service-card p {
+    margin: 0 0 10px 0;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.service-type {
+    padding: 5px;
+    border-radius: 5px;
+}
+
+/* Book Now Button */
+.book-now-container {
+    text-align: center;
+    margin: 30px 0;
+}
+
+#bookNowBtn {
+    background-color: #4A00E0;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#bookNowBtn:hover {
+    background-color: #6a1bff;
+}
+
+/* Responsive */
+@media(max-width: 500px) {
+    .service-card {
+        padding: 10px;
+    }
+
+    #bookNowBtn {
+        width: 80%;
+        padding: 12px;
+    }
+}

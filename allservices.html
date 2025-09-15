@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homesure Services</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f8f9fb;
+      color: #222;
+    }
+
+    /* HEADER */
+    header {
+      background: linear-gradient(135deg, #4e54c8, #8f94fb);
+      text-align: center;
+      padding: 70px 20px;
+      color: white;
+      border-bottom-left-radius: 40px;
+      border-bottom-right-radius: 40px;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.2);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 3rem;
+      font-weight: 700;
+    }
+    header p {
+      margin-top: 12px;
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    /* TABS */
+    .tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      background: #fff;
+      border-radius: 15px;
+      margin: -40px auto 40px auto;
+      width: 95%;
+      max-width: 1200px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+    .tab-btn {
+      flex: 1;
+      padding: 16px;
+      cursor: pointer;
+      border: none;
+      background: none;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #555;
+      transition: all 0.3s;
+    }
+    .tab-btn:hover {
+      background: #f0f0f5;
+    }
+    .tab-btn.active {
+      background: #4e54c8;
+      color: white;
+    }
+
+    /* TAB CONTENT */
+    .tab-content {
+      display: none;
+      padding: 40px 20px;
+      width: 95%;
+      max-width: 1200px;
+      margin: auto;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+    }
+    .tab-content.active {
+      display: grid;
+    }
+
+    /* SERVICE CARD */
+    .service-card {
+      background: #fff;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    }
+    .service-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    /* CONTENT */
+    .content {
+      padding: 20px;
+    }
+    .content h2 {
+      margin: 0;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 8px;
+    }
+    .content p {
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+      color: #555;
+    }
+
+    /* SELECT */
+    .selector select {
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px solid #ddd;
+      width: 100%;
+      font-size: 1rem;
+    }
+
+    /* PRICE */
+    .price {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #4e54c8;
+      margin: 14px 0;
+    }
+
+    /* BOOK BUTTON */
+    .book-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #ff6f61, #e63946);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(230,57,70,0.4);
+    }
+    .book-btn:hover {
+      background: linear-gradient(135deg, #e63946, #d62828);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Royal Home Services</h1>
+  <p>Trusted professionals for all your home needs</p>
+</header>
+
+<!-- TABS -->
+<div class="tabs">
+  <button class="tab-btn active" onclick="openTab(event, 'sofa')">Sofa</button>
+  <button class="tab-btn" onclick="openTab(event, 'kitchen')">Kitchen</button>
+  <button class="tab-btn" onclick="openTab(event, 'plumbing')">Plumbing</button>
+  <button class="tab-btn" onclick="openTab(event, 'laundry')">Laundry</button>
+  <button class="tab-btn" onclick="openTab(event, 'electrician')">Electrician</button>
+  <button class="tab-btn" onclick="openTab(event, 'bathroom')">Bathroom</button>
+  <button class="tab-btn" onclick="openTab(event, 'deepcleaning')">Deep Cleaning</button>
+  <button class="tab-btn" onclick="openTab(event, 'ac')">AC</button>
+</div>
+
+<!-- SOFA TAB EXAMPLE -->
+<div id="sofa" class="tab-content active">
+  <div class="service-card">
+    <img src="https://images.unsplash.com/photo-1616627562392-cb293775cdbc" alt="Sofa Cleaning">
+    <div class="content">
+      <h2>Sofa Deep Cleaning</h2>
+      <p>Foam shampooing, stain removal & sanitization.</p>
+      <div class="selector">
+        <select onchange="updatePrice(this, { '1 Seater':400, '3 Seater':1000, '5 Seater':1500, '7 Seater':2000 })">
+          <option value="">Select Sofa Size</option>
+          <option value="1 Seater">1 Seater</option>
+          <option value="3 Seater">3 Seater</option>
+          <option value="5 Seater">5 Seater</option>
+          <option value="7 Seater">7 Seater</option>
+        </select>
+      </div>
+      <div class="price">Rs. 0</div>
+      <a href="cart.html" class="book-btn" onclick="addToCart('Sofa Deep Cleaning', this)">Book Now</a>
+    </div>
+  </div>
+
+  <div class="service-card">
+    <img src="https://images.unsplash.com/photo-1582582494700-7f29a6f2efad" alt="Recliner Cleaning">
+    <div class="content">
+      <h2>Recliner / L-Shape Sofa</h2>
+      <p>Specialized cleaning for recliners & large sofas.</p>
+      <div class="selector">
+        <select onchange="updatePrice(this, { 'Single Recliner':600, 'L-Shape Small':1800, 'L-Shape Large':2500 })">
+          <option value="">Select Option</option>
+          <option value="Single Recliner">Single Recliner</option>
+          <option value="L-Shape Small">L-Shape Small</option>
+          <option value="L-Shape Large">L-Shape Large</option>
+        </select>
+      </div>
+      <div class="price">Rs. 0</div>
+      <a href="cart.html" class="book-btn" onclick="addToCart('Recliner / L-Shape Sofa', this)">Book Now</a>
+    </div>
+  </div>
+</div>
+
+<!-- OTHER TABS (Kitchen, Plumbing, Laundry, etc.) - same structure with different images & pricing -->
+
+<script>
+  function openTab(evt, tabId) {
+    let contents = document.querySelectorAll('.tab-content');
+    let tabs = document.querySelectorAll('.tab-btn');
+    contents.forEach(c => c.classList.remove('active'));
+    tabs.forEach(t => t.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
+    evt.currentTarget.classList.add('active');
+  }
+
+  function updatePrice(select, prices) {
+    let priceDiv = select.parentElement.nextElementSibling;
+    let val = select.value;
+    if (val && prices[val]) {
+      priceDiv.textContent = "Rs. " + prices[val];
+      priceDiv.setAttribute("data-price", prices[val]);
+      priceDiv.setAttribute("data-option", val);
+    } else {
+      priceDiv.textContent = "Rs. 0";
+      priceDiv.removeAttribute("data-price");
+      priceDiv.removeAttribute("data-option");
+    }
+  }
+
+  function addToCart(service, btn) {
+    let priceDiv = btn.previousElementSibling;
+    let option = priceDiv.getAttribute("data-option") || "Not Selected";
+    let price = priceDiv.getAttribute("data-price") || "0";
+
+    if (price === "0" || option === "Not Selected") {
+      alert("Please select an option before booking!");
+      return;
+    }
+
+    let item = { name: service, option: option, price: parseInt(price), qty: 1 };
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.push(item);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    window.location.href = "cart.html";
+  }
+</script>
+
+</body>
+</html>
+<!-- ======= Footer ======= -->
+<footer class="footer">
+  <div class="footer-container">
+    
+    <!-- Logo + About -->
+    <div class="footer-col">
+      <h2 class="logo">✨ YourBrand</h2>
+      <p>We provide professional cleaning, repair, and home services designed to make your life easier and more comfortable.</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-col">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="services.html">Our Services</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="cart.html">Your Cart</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="footer-col">
+      <h3>Contact Us</h3>
+      <p>📍 123 Service Street, Your City</p>
+      <p>📞 +91 98765 43210</p>
+      <p>✉️ support@yourbrand.com</p>
+    </div>
+
+    <!-- Social Media -->
+    <div class="footer-col">
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 YourBrand. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<!-- FontAwesome for Social Icons -->
+<script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
+
+<style>
+/* Footer Styles */
+.footer {
+  background: linear-gradient(135deg, #243b55, #141e30);
+  color: #fff;
+  padding: 50px 20px 20px;
+  margin-top: 40px;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-col h2.logo {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #ffdd57;
+}
+
+.footer-col h3 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  border-left: 3px solid #ffdd57;
+  padding-left: 8px;
+}
+
+.footer-col p, 
+.footer-col ul li a {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #ddd;
+  text-decoration: none;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin: 8px 0;
+}
+
+.footer-col ul li a:hover {
+  color: #ffdd57;
+  transition: 0.3s;
+}
+
+.social-icons {
+  display: flex;
+  gap: 12px;
+}
+
+.social-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffdd57;
+  color: #243b55;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  background: #fff;
+  color: #243b55;
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  padding-top: 15px;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+</style>

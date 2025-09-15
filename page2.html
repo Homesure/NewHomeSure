@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homesure Services Booking</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f9f9f9; color:#333; }
+    h2 { text-align:center; margin:20px 0; }
+    
+    /* Services Grid */
+    .services { padding:20px; text-align:center; }
+    .service-list { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; }
+    .service-item {
+      background:#fff; padding:15px; border-radius:12px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.1);
+      width:220px; transition:transform 0.2s ease-in-out;
+    }
+    .service-item:hover { transform:translateY(-5px); }
+    .service-item img { width:100%; border-radius:10px; margin-bottom:10px; }
+    .service-item h3 { margin:0 0 10px; font-size:16px; }
+    .service-item p { margin:0 0 10px; font-weight:bold; }
+    .service-item button {
+      padding:10px 15px; background:#2d6a4f; color:#fff;
+      border:none; border-radius:8px; cursor:pointer;
+    }
+    .service-item button:hover { background:#1b4332; }
+
+    /* Booking Page */
+    .booking { padding:20px; background:#fff; border-radius:16px; box-shadow:0 6px 18px rgba(0,0,0,0.15); width:90%; max-width:500px; margin:20px auto; }
+    .hidden { display:none; }
+    #bookingSummary { font-size:16px; margin-bottom:20px; padding:10px; background:#e9f5ec; border-radius:8px; color:#1b4332; }
+    .form-group { margin-bottom:15px; }
+    input { width:100%; padding:12px; border:1px solid #ccc; border-radius:8px; font-size:14px; }
+    button[type="submit"] { width:100%; padding:14px; background:#2d6a4f; color:#fff; border:none; border-radius:10px; font-size:16px; cursor:pointer; transition:0.3s; }
+    button[type="submit"]:hover { background:#1b4332; }
+  </style>
+</head>
+<body>
+
+<!-- ✅ Page 1: Services -->
+<section class="services">
+  <h2>Our Services</h2>
+  <div class="service-list">
+    <div class="service-item">
+      <img src="https://via.placeholder.com/220x140?text=Laundry" alt="Laundry">
+      <h3>Laundry – Washing</h3>
+      <p>₹250</p>
+      <button onclick="bookService('Laundry – Washing', 250)">Book Now</button>
+    </div>
+    <div class="service-item">
+      <img src="https://via.placeholder.com/220x140?text=Ironing" alt="Ironing">
+      <h3>Laundry – Ironing</h3>
+      <p>₹150</p>
+      <button onclick="bookService('Laundry – Ironing', 150)">Book Now</button>
+    </div>
+    <div class="service-item">
+      <img src="https://via.placeholder.com/220x140?text=Beauty" alt="Beauty Service">
+      <h3>Beauty – Facial</h3>
+      <p>₹500</p>
+      <button onclick="bookService('Beauty – Facial', 500)">Book Now</button>
+    </div>
+    <div class="service-item">
+      <img src="https://via.placeholder.com/220x140?text=Plumbing" alt="Plumbing">
+      <h3>Plumbing Service</h3>
+      <p>₹400</p>
+      <button onclick="bookService('Plumbing Service', 400)">Book Now</button>
+    </div>
+    <div class="service-item">
+      <img src="https://via.placeholder.com/220x140?text=Cleaning" alt="Home Cleaning">
+      <h3>Home Cleaning – Deep Clean</h3>
+      <p>₹1200</p>
+      <button onclick="bookService('Home Cleaning – Deep Clean', 1200)">Book Now</button>
+    </div>
+  </div>
+</section>
+
+<!-- ✅ Page 2: Booking Checkout -->
+<section id="bookingPage" class="booking hidden">
+  <h2>Confirm Your Booking</h2>
+  <div id="bookingSummary"></div>
+  
+  <form id="bookingForm">
+    <div class="form-group">
+      <input type="text" name="name" placeholder="Your Name *" required />
+    </div>
+    <div class="form-group">
+      <input type="tel" name="phone" placeholder="Phone Number *" required />
+    </div>
+    <div class="form-group">
+      <input type="date" name="date" required />
+    </div>
+    <div class="form-group">
+      <input type="time" name="time" required />
+    </div>
+    <div class="form-group">
+      <input type="text" name="location" placeholder="Location *" required />
+    </div>
+    <button type="submit">✅ Confirm Booking</button>
+  </form>
+  
+  <p id="formStatus"></p>
+</section>
+
+<script>
+let selectedService = "";
+let selectedPrice = 0;
+
+// Handle "Book Now"
+function bookService(service, price) {
+  selectedService = service;
+  selectedPrice = price + 3; // ✅ Add ₹3 platform fee
+  document.querySelector(".services").style.display = "none";
+  document.getElementById("bookingPage").classList.remove("hidden");
+  document.getElementById("bookingSummary").innerHTML =
+    `<strong>Service:</strong> ${service}<br>
+     <strong>Base Price:</strong> ₹${price}<br>
+     <strong>Platform Fee:</strong> ₹3<br>
+     <strong>Total Amount:</strong> ₹${selectedPrice}`;
+}
+
+// Handle Booking Form
+document.getElementById("bookingForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  const bookingData = {
+    service: selectedService,
+    totalAmount: selectedPrice,
+    name: this.name.value,
+    phone: this.phone.value,
+    date: this.date.value,
+    time: this.time.value,
+    location: this.location.value
+  };
+  console.log("✅ Booking Confirmed:", bookingData);
+  document.getElementById("formStatus").innerText = "✅ Booking confirmed! We will contact you soon.";
+  this.reset();
+});
+</script>
+
+</body>
+</html>
